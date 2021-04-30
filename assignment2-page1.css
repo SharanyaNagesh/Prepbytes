@@ -1,0 +1,138 @@
+body{
+    justify-content:center;
+    font-family:"Montserrat",sans-serif;
+    font-weight:normal;
+    /*text-align:center;*/
+}
+#dark-heading{
+    font-size: 64px;
+    padding-left: 300px;
+    font-weight: 900;
+    white-space: nowrap;
+    overflow-x:auto;
+    display:inline-block;
+    vertical-align:top;
+    
+}
+.lightWeightFonts{
+    display: inline-block;
+    vertical-align:top; 
+    font-weight: 100;  
+}
+#light-heading{
+    font-size: 64px;
+}
+
+.fa-plus-circle{
+    color:red;
+    float:right; 
+    display: inline-block;
+    vertical-align: top;
+    margin:100px 400px 0px 0px;
+    /* position:relative; */
+     -webkit-text-stroke: 3.2px ;
+}
+
+#addlist{
+    margin:100px -150px 0px 0px;
+    font-size: 30px;
+    font-weight: 400;
+     font-family: 'Roboto',sans-serif; 
+    float:right;
+    vertical-align:top; 
+    
+}
+#main-container{
+    margin-left:300px;
+    margin-right:250px;
+    /* justify-content: space-evenly */
+}
+
+.box{
+   border:1px solid tomato;
+   padding:0px 10px 0px 10px ;
+   height:300px;
+   border-radius:10px 10px 10px 10px;
+   box-shadow:10px 10px 10px lightgray;
+   display:inline-block;
+   width:170px;
+   white-space: normal;
+   text-align:center;
+} 
+
+#box_1{
+    float:left;
+    
+}
+#box_2{
+    margin-left:110px;
+}
+#box_3{
+    overflow:auto;
+   float:right;
+}
+#trip{
+   font-size: 24px;
+   font-weight:300;
+    font-family: 'Raleway', sans-serif; 
+   /* font-family: 'Open Sans Condensed', sans-serif; */
+   transform: scaleY(1);
+   letter-spacing: 0.05px;
+   color: red;
+}
+
+hr{
+    float:right;
+    margin-top:-10px;
+    margin-right: -10px;
+    width:92%
+}
+.cmplt{
+     color:red;
+     font-weight:600px;
+     font-family: sans-serif;
+     font-size: 1.25em;
+     /* text-decoration: line-through red solid;  */
+     padding-top: 10px; 
+    
+}
+.strike{
+     line-height: 1em; 
+    position: relative;
+}
+
+.strike::after{
+    border-bottom: 0.2em solid red;
+    content: "";
+    left: -80px;
+    margin-top: calc(0.125em / 2 * -1);
+    position: absolute;
+    right: 0;
+    top: 1.2em;
+    width: 150px
+
+}
+#id{
+    margin-left:-30px;
+    height:18px;
+    width:18px
+}
+.pndg{
+    /* margin-left:-30px; */
+    font-size: 20px;
+    font-weight:normal;
+    font-family: sans-serif;
+    transform: scale(0.4, 1);
+    transform: scaleY(1);
+
+}
+.todo{
+    font-size: 24px;
+    font-weight:300;
+    font-family: 'Raleway', sans-serif;
+    transform: scale(0.4, 1);
+    transform: scaleY(1);
+    letter-spacing: 0.05px;
+    color: tomato;
+
+}
