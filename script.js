@@ -1,80 +1,64 @@
-var plusCircle = document.querySelector(".fa-plus-circle");
+var ListplusCircle = document.querySelector("#ListplusCircle");
+var Item_plusCircle = document.querySelector("#Item_plusCircle");
+var Item_plusCircleZoom = document.querySelector("#Item_plusCircleZoom");
 
 window.onload = function() {
-    var popupHide = document.querySelector(".popup");
-    popupHide.style.visibility = "hidden";
-
-    var flexBoxHide = document.querySelector("#flex-box");
-    flexBoxHide.style.visibility = "hidden";
-
-    var zoomCardHide = document.querySelector(".zoomCard")
-    zoomCardHide.style.visibility = "hidden";
-
-    var noItem = document.querySelector(".noItemFound");
-    noItem.style.visibility = "visible";
+    document.querySelector("#popup").style.visibility = "hidden";
+    document.querySelector(".Itempopup").style.visibility = "hidden";
+    document.querySelector(".flex-container").style.visibility = "hidden";
+    document.querySelector(".zoomCard").style.visibility = "hidden";
+    document.querySelector(".noItemFound").style.visibility = "visible";
 };
 
-plusCircle.addEventListener("click", function() {
-    // var headingHide = document.querySelector(".heading-container");
-    // headingHide.style.visibility = "hidden";
+ListplusCircle.addEventListener("click", function() {
 
-    var noItem = document.querySelector(".noItemFound");
-    noItem.style.visibility = "hidden";
+    document.querySelector(".noItemFound").style.visibility = "hidden";
+    document.querySelector(".container").style.filter = "blur(5px)";
+    document.querySelector("#popup>.new_list").innerHTML = "Add New List";
+    document.querySelector("#popup").style.visibility = "visible";
+    document.querySelector(".flex-container").style.visibility = "hidden";
 
-    var blurImage = document.querySelector(".container");
-    blurImage.style.filter = "blur(5px)";
-    // var backgroundShow  = document.querySelector(".bg-image");
-    // backgroundShow.style.visibility = "visible";
-
-    var popupShow = document.querySelector(".popup");
-    popupShow.style.visibility = "visible";
-
-    var createBox = document.getElementById("flex-box");
-    createBox.style.visibility = "hidden";
-    // console.log("connected");
 });
 
-var addClick = document.querySelector("#addbtn");
+function closepopup() {
+    document.querySelector(".container").style.filter = "blur(0px)";
+    document.querySelector(".noItemFound").style.visibility = "hidden";
+    document.querySelector(".flex-container").style.visibility = "visible";
+    document.querySelector("#popup").style.visibility = "hidden";
+};
+
+function closeItempopup() {
+    document.querySelector(".headToflex").style.filter = "blur(0px)";
+    document.querySelector(".noItemFound").style.visibility = "hidden";
+    document.querySelector(".Itempopup").style.visibility = "hidden";
+};
+
+var addClick = document.querySelector(".addbtn");
 var textareaValue = document.querySelector("#textarea");
-var clickedAdd = textareaValue.value;
 
 addClick.addEventListener("click", function() {
     var clickedAdd = textareaValue.value;
-
-    console.log(clickedAdd);
-    var noItem = document.querySelector(".noItemFound");
-    noItem.style.visibility = "hidden";
-
-    var unblurImage = document.querySelector(".container");
-    unblurImage.style.filter = "blur(0px)";
-
-    var popupShow = document.querySelector(".popup");
-    popupShow.style.visibility = "hidden";
-
+    document.querySelector(".noItemFound").style.visibility = "hidden";
+    document.querySelector(".container").style.filter = "blur(0px)";
+    document.querySelector("#popup").style.visibility = "hidden";
+    document.querySelector(".flex-container").style.visibility = "visible";
     boxCreation(clickedAdd);
-
-
 })
-var createBox = document.getElementById("flex-box");
-var listName = document.querySelector("#box-heading");
 
 function boxCreation(clickedAdd) {
-    createBox.style.visibility = "visible";
-    listName.innerHTML = clickedAdd;
-    var horLine = document.querySelector(".horLine");
-    horLine.style.visibility = "visible";
-}
 
-listName.addEventListener("click", function listFullScreen() {
-    var clickedAdd = textareaValue.value;
-    console.log(clickedAdd);
-    var onlyCardZoom = document.querySelector(".headToflex");
-    onlyCardZoom.style.display = "none";
-    createBox.style.display = "none";
-    var zoomCard = document.querySelector(".zoomCard");
-    zoomCard.style.visibility = "visible";
-    var zoomCardName = document.querySelector("#zoomCardName");
-    var zoomCardName2 = document.querySelector("#zoomCardName2");
-    zoomCardName.innerHTML = clickedAdd;
-    zoomCardName2.innerHTML = clickedAdd;
-});
+    var createBox = document.createElement("div")
+    createBox.setAttribute("class", "flex-box")
+    createBox.setAttribute("id", Math.random().toString(36).substr(2));
+    createBox.innerHTML = `
+        <span class="fa-stack" id="circledTrash" onclick="removeCard(this)">
+            <i class="fa fa-circle fa-stack-2x "></i> 
+            <i class="fa fa-trash fa-stack-1x " aria-hidden="true"></i>
+        </span>
+        <i class="fa fa-plus-circle fa-2x" id="Item_plusCircle" aria-hidden="true" onclick="resetAndpopup(this)"></i>
+        <p id="box-heading" onclick="listFullScreen()">${clickedAdd}</p>
+        <hr class="horLine" />
+        <div class="List-entries">   
+        </div>`
+    document.querySelector(".flex-container").appendChild(createBox);
+}

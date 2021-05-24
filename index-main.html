@@ -6,9 +6,10 @@
     <meta charset="utf-8">
     <title>Complete TODO App</title>
     <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./style2.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="https://use.fontawesome.com/2d532544fa.js"></script>
+
     <!-- fonts -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:100,700" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -23,7 +24,7 @@
             <div class="heading-container">
                 <p class="dark-heading">Tasks </p>
                 <p class="lightWeightFonts" id="light-heading">Lists</p>
-                <i class="fa fa-plus-circle" style="font-size:36px"></i>
+                <i class="fa fa-plus-circle" id="ListplusCircle" style="font-size:36px" onclick="reset()"></i>
                 <p class="lightWeightFonts" id="addlist">Add List</p>
             </div>
         </div>
@@ -31,34 +32,40 @@
         <div class="container-class">
             <p class="noItemFound">No Item found in the list</p>
         </div>
+        <div class="flex-container">
+        </div>
+    </div>
 
-        <div class="popup">
-            <p id="new_list">Add New List</p>
-            <textarea id="textarea" rows="2" cols="50" placeholder="Add new text"></textarea>
-            <button type="submit" id="addbtn"> ADD </button>
-        </div>
-        <div id="flex-box">
-            <span class="fa-stack" id="circledTrash">
-                <i class="fa fa-circle fa-2x "></i>
-                <i class="fa fa-trash-alt fa-1x fa-inverse " aria-hidden="true"></i>
-            </span>
-            <i class="fa fa-plus-circle" id="addItem" aria-hidden="true"></i>
-            <p id="box-heading"></p>
-            <hr class="horLine" />
-        </div>
+    <div id="popup">
+        <p class="new_list"></p>
+        <textarea id="textarea" rows="2" cols="50" placeholder="Add new text"></textarea>
+        <button type="submit" class="addbtn"> Add </button>
+        <button type="submit" class="closebtn" onclick="closepopup()">Close</button>
+    </div>
+
+    <div class="Itempopup">
+        <p class="new_list"></p>
+        <textarea class="textarea" rows="2" cols="50" placeholder="Add new text"></textarea>
+        <button type="submit" id="Itemaddbtn" onclick="taskCreation()"> Add </button>
+        <button type="submit" id="Itemclosebtn" onclick="closeItempopup()">Close</button>
     </div>
 
     <div class="zoomCard">
         <h2><span id="zoomCardName"></span></h2>
-        <i class="fa fa-arrow-circle-left fa-3x"></i>
+        <i class="fa fa-arrow-circle-left fa-3x" id="backbtn"></i>
         <p class="lightWeightFonts" id="back">Back</p>
-        <div class="box-zoom">
+        <div class="box-zoom" id="zoomBoxId">
+            <i class="fa fa-plus-circle fa-2x" id="Item_plusCircleZoom" aria-hidden="true" onclick="resetAndpopup(this)"></i>
             <p id="zoomCardName2"></p>
             <hr class="horLine">
+            <div class="List-entries">
+            </div>
         </div>
     </div>
 
     <script src="./script.js">
+    </script>
+    <script src="./script2.js">
     </script>
 </body>
 
